@@ -2,4 +2,4 @@ announcement.txt
 coverage
 doc
 pkg
-
+spec/log/*
