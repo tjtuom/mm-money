@@ -14,10 +14,12 @@ class Money
   end
 
   def self.from_mongo(value)
-    if value.nil?
-      nil
-    else
+    if value.kind_of?(Money)
+      value
+    elsif value.kind_of?(Array)
       Money.new(value.first, value.second)
+    else
+      nil
     end
   end
 end
