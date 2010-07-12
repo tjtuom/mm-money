@@ -22,6 +22,10 @@ describe "Money key" do
     Product.new(:price => 10).price.should be_kind_of(Money)
   end
 
+  it 'handles nils correctly' do
+    Product.new().price.should be_nil
+  end
+
   it 'handles integers correctly' do
     Product.new(:price => 10).price.should == Money.new(1000, 'EUR')
   end
@@ -34,6 +38,10 @@ describe "Money key" do
     Product.new(:price => '10').price.should == Money.new(1000, 'EUR')
   end
 
+  it 'handles money objects correctly' do
+    Product.new(:price => Money.new(1000, 'EUR')).price.should == Money.new(1000, 'EUR')
+  end
+
   it 'handles strings with currency in them correctly' do
     Product.new(:price => '10 USD').price.should == Money.new(1000, 'USD')
   end
@@ -44,10 +52,11 @@ describe "Money key" do
   end
 
   it 'handles sorting in the db properly' do
-    first = Product.create!(:price => 10)
-    third = Product.create!(:price => 30)
-    second = Product.create!(:price => 20)
+    first = Product.create!(:price => 0)
+    third = Product.create!(:price => 35)
+    second = Product.create!(:price => 5)
 
     Product.sort(:price.asc).all.should == [first, second, third]
+    Product.sort(:price.desc).all.should == [third, second, first]
   end
 end
