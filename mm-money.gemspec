@@ -2,15 +2,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mm-money}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Toni Tuominen"]
-  s.date = %q{2010-07-04}
+  s.date = %q{2010-07-12}
   s.description = %q{Handle money keys with MongoMapper.}
   s.email = %q{toni@piranhadigital.fi}
   s.extra_rdoc_files = ["History.txt", "README.txt", "version.txt"]
-  s.files = [".gitignore", "History.txt", "README.txt", "Rakefile", "lib/mm-money.rb", "spec/log/spec.log", "spec/mm-money_spec.rb", "spec/spec_helper.rb", "version.txt"]
+  s.files = [".gitignore", "History.txt", "README.txt", "Rakefile", "lib/mm-money.rb", "mm-money.gemspec", "spec/mm-money_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "version.txt"]
   s.homepage = %q{http://github.com/tjtuom/mm-money}
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
